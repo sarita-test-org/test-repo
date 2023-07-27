@@ -12,17 +12,15 @@ permissions:
   pull-requests: write
 jobs:
   add-docs-review-comment-to-api-prs:
-    if: ${{ github.event.requested_team.name == 'test-team' }}
+    if: ${{ github.event.requested_team.name == 'docs-reviewers' }}
     runs-on: ubuntu-latest
     steps:
     - name: 'Add comment to the PR'
       run: |
-          gh pr comment $PR --body "👋 Hello from GitHub Docs! docs-reviewers was requested to review this pull request. We'd like to highlight a few things to keep in mind: 
-
-          - This PR has been automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936/views/49) where it will be reviewed within 2 business days. **We encourage you to wait for a docs review before merging this PR.** 🙇 
+          gh pr comment $PR --body "👋 Hello from GitHub Docs! docs-reviewers was requested to review this pull request. 👍 We'd like to highlight a few things to keep in mind:
+          - This PR has been automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936/views/49) where it will be reviewed within 2 business days. **We encourage you to wait for a docs review before merging this PR.** 🙇
           - If this PR only adds or updates an internal endpoint, you can remove the docs team as reviewers.
           - You can use [this script](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs) in a codespace to preview what your changes will look like in the docs! [Common errors](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#common-errors) to look out for include incorrect [versioning](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/versioning/), premature [publication](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/publishing/), and incomplete descriptions.
-          
           For guidance on updating OpenAPI docs, you can consult our [OpenAPI in the Docs](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/) guide and our [REST API style guide](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/styleguide/#rest-api-style). Please also feel free to ask in the #docs-apis-and-events channel on Slack or leave comments on this PR if you have questions or want help with wording!"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
