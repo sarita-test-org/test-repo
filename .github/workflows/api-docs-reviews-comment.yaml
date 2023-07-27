@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: 'Add comment to the PR'
       run: |
-          gh pr comment $PR --body "👋 Hello from GitHub Docs! docs-reviewers was requested to review this pull request. 👍 We'd like to highlight a few things to keep in mind: 
+          gh pr comment $PR --body "👋 Hello from GitHub Docs! docs-reviewers was requested to review this pull request. We'd like to highlight a few things to keep in mind: 
 
           - This PR has been automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936/views/49) where it will be reviewed within 2 business days. **We encourage you to wait for a docs review before merging this PR.** 🙇 
           - If this PR only adds or updates an internal endpoint, you can remove the docs team as reviewers.
